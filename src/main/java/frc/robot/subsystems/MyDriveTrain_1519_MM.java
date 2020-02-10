@@ -104,7 +104,7 @@ public class MyDriveTrain_1519_MM extends Subsystem {
 	private double currentAngularRate = xyz_dps[2];
     
  // member variables for Mecanum drive
- 	private static final int kMaxNumberOfMotors = 2;
+ 	private static final int kMaxNumberOfMotors = 2; //2 masters then 4 slaves
  	private final int m_invertedMotors[] = new int[kMaxNumberOfMotors];
  	private static final int kLeft = 0;
  	private static final int kRight = 1;
@@ -138,7 +138,7 @@ public class MyDriveTrain_1519_MM extends Subsystem {
 	 private double m_maxWheelSpeed_Current;
  	private double m_maxWheelSpeed_HighGear = 747; // // 2016 = 445; //(10.5 Gear box = 445)//360(12.75 gear box);//550.0;     // empirically measured around 560 to 580	
 	private double m_maxWheelSpeed_LowGear = 278; 
-	private double m_encoderUnitsPerRev = 4096;
+	private double m_encoderUnitsPerRev = 2048; //TalonFX = 2048, CTRE Magnetic = 4096
  	
  	// Ramp rates in Seconds
  	private double m_closedLoopRamp_sec = .25;
@@ -154,9 +154,6 @@ public class MyDriveTrain_1519_MM extends Subsystem {
  	private boolean reportERROR_ONS = false;
  	
  	private boolean m_Craling = false;
-	private double m_ddr_LeftCounter;
-	private double m_ddr_RightCounter;
-	private double m_ddr_step = 4096 / 8; //1/8 wheel revolution
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
